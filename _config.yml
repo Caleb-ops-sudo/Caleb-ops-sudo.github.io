@@ -1,3 +1,6 @@
+remote_theme: christianezeani/panthera-jekyll
 theme: panthera-jekyll
 
 $ bundle
+
+
