@@ -5,29 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>George Cook</title>
   <link rel="stylesheet" href="styles.css" />
-  <script>
-    let currentImageIndex = 0;
-    const imagePaths = ['project1.jpg', 'project2.jpg', 'project3.jpg', 'project4.jpg'];
-
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function changeImage(direction) {
-      currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
-      document.getElementById('project-image').src = imagePaths[currentImageIndex];
-    }
-
-    function autoRotate() {
-      changeImage(1);
-    }
-
-    window.onload = () => {
-      setInterval(autoRotate, 5000);
-    };
-  </script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
+  <div id="loading-screen">
+    <img src="phi_icon.jpg" alt="Loading..." class="loading-logo" />
+  </div>
+
   <div class="top-bar">
     <div class="nav-left">
       <img src="phi_icon.jpg" alt="Home" class="phi-logo" onclick="scrollToSection('top')" />
@@ -71,5 +55,31 @@
 
   <button id="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
 
+  <script>
+    let currentImageIndex = 0;
+    const imagePaths = ['project1.jpg', 'project2.jpg', 'project3.jpg', 'project4.jpg'];
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
+      document.getElementById('project-image').src = imagePaths[currentImageIndex];
+    }
+
+    function autoRotate() {
+      changeImage(1);
+    }
+
+    window.onload = () => {
+      setInterval(autoRotate, 5000);
+      document.getElementById('loading-screen').classList.add('hide-loader');
+    };
+
+    window.addEventListener('scroll', () => {
+      document.body.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
