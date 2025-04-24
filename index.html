@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>George Cook</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>George Cook</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    let currentImageIndex = 0;
+    const imagePaths = [
+      'project1.jpg',
+      'project2.jpg',
+      'project3.jpg',
+      'project4.jpg'
+    ];
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+    function changeImage(direction) {
+      currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
+      document.getElementById('project-image').src = imagePaths[currentImageIndex];
+    }
+  </script>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="nav-left">
-            <button class="nav-logo" onclick="scrollToSection('top')">GC</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('extras')">Extras</button>
-        </div>
-        <div class="nav-right">
-            <button class="contact-button" onclick="window.open('https://www.linkedin.com/in/-gtcc', '_blank')">Contact Me</button>
-        </div>
+  <div class="top-bar">
+    <div class="nav-left">
+      <img src="Screenshot 2025-04-23 at 7.14.30 PM.png" alt="GC Logo" class="gc-logo" onclick="scrollToSection('top')" />
+      <button onclick="scrollToSection('projects')">Projects</button>
+      <button onclick="scrollToSection('extras')">Extras</button>
     </div>
+    <div class="nav-right">
+      <button class="contact-button" onclick="window.open('https://www.linkedin.com/in/-gtcc', '_blank')">Contact Me</button>
+    </div>
+  </div>
 
-    <div class="hero" id="top">
-        <img src="headshot.jpg" alt="George Cook" class="headshot">
-        <h1>George Cook <img src="boise_logo.png" alt="Boise State Logo" class="bsu-logo"></h1>
-        <div class="resume">
-            <p><strong>Boise State University, Electrical Engineering</strong></p>
-        </div>
+  <div class="hero" id="top">
+    <img src="Screenshot 2025-04-23 at 6.50.34 PM.png" alt="George Cook" class="headshot" />
+    <h1>George Cook <img src="328-3286173_boise-state-university-logo.png" alt="Boise State Logo" class="bsu-logo" /></h1>
+    <div class="resume">
+      <p><strong>Boise State University, Electrical Engineering</strong></p>
     </div>
+  </div>
 
-    <div class="section projects" id="projects">
-        <h2>Projects</h2>
-        <p>Portfolio and class-based project highlights go here.</p>
+  <div class="section projects" id="projects">
+    <h2>Projects</h2>
+    <p>Explore a selection of embedded systems and electronics prototypes I’ve built using Arduino, LCD displays, sensors, motors, and more.</p>
+    <div class="carousel">
+      <button onclick="changeImage(-1)">&#8592;</button>
+      <img id="project-image" src="project1.jpg" alt="Project Image" class="project-img" />
+      <button onclick="changeImage(1)">&#8594;</button>
     </div>
+  </div>
 
-    <div class="section extras" id="extras">
-        <h2>Extras</h2>
-        <p>Fun facts, awards, and activities go here.</p>
-    </div>
+  <div class="section extras" id="extras">
+    <h2>Extras</h2>
+    <p>This section features highlights from my club involvement, volunteering, and technical exploration outside classwork.</p>
+  </div>
 </body>
 </html>
