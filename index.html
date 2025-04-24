@@ -7,25 +7,30 @@
   <link rel="stylesheet" href="styles.css" />
   <script>
     let currentImageIndex = 0;
-    const imagePaths = [
-      'project1.jpg',
-      'project2.jpg',
-      'project3.jpg',
-      'project4.jpg'
-    ];
+    const imagePaths = ['project1.jpg', 'project2.jpg', 'project3.jpg', 'project4.jpg'];
+
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
+
     function changeImage(direction) {
       currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
       document.getElementById('project-image').src = imagePaths[currentImageIndex];
     }
+
+    function autoRotate() {
+      changeImage(1);
+    }
+
+    window.onload = () => {
+      setInterval(autoRotate, 5000);
+    };
   </script>
 </head>
 <body>
   <div class="top-bar">
     <div class="nav-left">
-      <img src="phi.jpg" alt="GC Logo" class="gc-logo" onclick="scrollToSection('top')" />
+      <img src="phi_icon.jpg" alt="Home" class="phi-logo" onclick="scrollToSection('top')" />
       <button onclick="scrollToSection('projects')">Projects</button>
       <button onclick="scrollToSection('extras')">Extras</button>
     </div>
@@ -35,7 +40,7 @@
   </div>
 
   <div class="hero" id="top">
-    <img src="headshot.jpg" alt="George Cook" class="headshot" />
+    <img src="Screenshot 2025-04-23 at 6.50.34 PM.png" alt="George Cook" class="headshot" />
     <h1>George Cook <img src="328-3286173_boise-state-university-logo.png" alt="Boise State Logo" class="bsu-logo" /></h1>
     <div class="resume">
       <p><strong>Boise State University, Electrical Engineering</strong></p>
@@ -44,13 +49,12 @@
 
   <div class="section projects" id="projects">
     <h2>Projects</h2>
-    <p class="description">Explore a selection of embedded systems and electronics prototypes I’ve built using Arduino, LCD displays, sensors, motors, and more.</p>
     <div class="projects-layout">
       <ul class="project-list">
-        <li><strong>RFID Security System:</strong> Designed a secure Arduino-based RFID and keypad lock system with LCD feedback.</li>
-        <li><strong>Environmental Monitor:</strong> Built a temperature & humidity sensor with live display on LCD.</li>
-        <li><strong>Stepper Motor Driver:</strong> Programmed motor control system using ULN2003 driver.</li>
-        <li><strong>Basic Display Output:</strong> Deployed a “Hello, World!” embedded LCD output system.</li>
+        <li><strong>RFID Security System:</strong> Built secure access system using RFID and keypad entry. <em>Learned how to integrate multiple components and program authentication logic.</em></li>
+        <li><strong>Environmental Monitor:</strong> Developed real-time display for temperature and humidity. <em>Learned about sensor calibration and I2C communication.</em></li>
+        <li><strong>Stepper Motor Driver:</strong> Implemented stepper motor rotation logic. <em>Learned about timing control and pulse sequencing.</em></li>
+        <li><strong>LCD Hello World:</strong> Simple output to display system status. <em>Learned about LCD wiring and display registers.</em></li>
       </ul>
       <div class="carousel">
         <button onclick="changeImage(-1)">&#x25C0;</button>
