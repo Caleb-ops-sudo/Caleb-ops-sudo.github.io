@@ -25,7 +25,7 @@
 <body>
   <div class="top-bar">
     <div class="nav-left">
-      <img src="Screenshot 2025-04-23 at 7.14.30 PM.png" alt="GC Logo" class="gc-logo" onclick="scrollToSection('top')" />
+      <img src="logo_gc.png" alt="GC Logo" class="gc-logo" onclick="scrollToSection('top')" />
       <button onclick="scrollToSection('projects')">Projects</button>
       <button onclick="scrollToSection('extras')">Extras</button>
     </div>
@@ -44,11 +44,19 @@
 
   <div class="section projects" id="projects">
     <h2>Projects</h2>
-    <p>Explore a selection of embedded systems and electronics prototypes I’ve built using Arduino, LCD displays, sensors, motors, and more.</p>
-    <div class="carousel">
-      <button onclick="changeImage(-1)">&#8592;</button>
-      <img id="project-image" src="project1.jpg" alt="Project Image" class="project-img" />
-      <button onclick="changeImage(1)">&#8594;</button>
+    <p class="description">Explore a selection of embedded systems and electronics prototypes I’ve built using Arduino, LCD displays, sensors, motors, and more.</p>
+    <div class="projects-layout">
+      <ul class="project-list">
+        <li><strong>RFID Security System:</strong> Designed a secure Arduino-based RFID and keypad lock system with LCD feedback.</li>
+        <li><strong>Environmental Monitor:</strong> Built a temperature & humidity sensor with live display on LCD.</li>
+        <li><strong>Stepper Motor Driver:</strong> Programmed motor control system using ULN2003 driver.</li>
+        <li><strong>Basic Display Output:</strong> Deployed a “Hello, World!” embedded LCD output system.</li>
+      </ul>
+      <div class="carousel">
+        <button onclick="changeImage(-1)">&#x25C0;</button>
+        <img id="project-image" src="project1.jpg" alt="Project Image" class="project-img" />
+        <button onclick="changeImage(1)">&#x25B6;</button>
+      </div>
     </div>
   </div>
 
