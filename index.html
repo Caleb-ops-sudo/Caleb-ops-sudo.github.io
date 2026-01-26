@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <div class="section projects" id="projects">
+  <div class="section projects" id="Arduino Projects">
     <h2>Projects</h2>
     <div class="projects-layout">
       <ul class="project-list">
@@ -51,35 +51,18 @@
   <div class="section extras" id="extras">
     <h2>Extras</h2>
     <p>This section features highlights from my club involvement, volunteering, and technical exploration outside classwork.</p>
+    
+    <div class="extras-item">
+      <h3>Intervarsity Leader</h3>
+      <p>As an Intervarsity Christian Fellowship leader, I have the privilege of leading a Bible study where we explore scripture and discuss how faith applies to our daily lives. Beyond the study sessions, I am committed to serving the campus community through various outreach initiatives and mentoring opportunities. Additionally, I help organize and host a weekly gathering where students come together to build community, share experiences, and grow spiritually. This role has taught me the value of servant leadership and deepened my ability to connect with and support others.</p>
+      <div class="extras-images">
+        <!-- Images will be added here -->
+      </div>
+    </div>
   </div>
 
   <button id="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
 
-  <script>
-    let currentImageIndex = 0;
-    const imagePaths = ['project1.jpg', 'project2.jpg', 'project3.jpg', 'project4.jpg'];
-
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function changeImage(direction) {
-      currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
-      document.getElementById('project-image').src = imagePaths[currentImageIndex];
-    }
-
-    function autoRotate() {
-      changeImage(1);
-    }
-
-    window.onload = () => {
-      setInterval(autoRotate, 5000);
-      document.getElementById('loading-screen').classList.add('hide-loader');
-    };
-
-    window.addEventListener('scroll', () => {
-      document.body.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
